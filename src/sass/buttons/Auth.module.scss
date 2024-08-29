@@ -1,0 +1,13 @@
+@import '../variables/colors.scss';
+
+.authButton {
+    width: 100%;
+    padding: 14px 67px;
+    background-color: $red;
+    color: $pureWhite;
+    margin-bottom: 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 24px;
+}

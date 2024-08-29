@@ -1,0 +1,19 @@
+@import '../variables/colors.scss';
+
+.title {
+    color: $pureWhite;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.5px;
+}
+
+.subTitle {
+    color: $pureWhite;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.312px;
+}

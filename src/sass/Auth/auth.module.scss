@@ -1,0 +1,68 @@
+@import '../variables/colors.scss';
+
+.auth {
+    background-color: $semiDarkBlue;
+    border-radius: 10px;
+    padding: 24px;
+    max-width: 365px;
+    margin: 0 auto;
+
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__icon {
+        &__movie {
+            padding-top: 48px;
+            display: block;
+            text-align: center;
+            margin-bottom: 58px;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+    }
+
+    &__input {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $greyishBlue;
+        color: $pureWhite;
+        padding: 0 0 18px 16px;
+        width: 100%;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:last-child {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__account {
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        color: $pureWhite;
+        display: flex;
+        gap: 9px;
+        justify-content: center;
+
+        &__auth {
+            font-size: inherit;
+            font-style: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+            color: $red;
+            cursor: pointer;
+        }
+    }
+
+}
