@@ -1,0 +1,37 @@
+@import '../variables/colors.scss';
+
+.search {
+    position: relative;
+    margin: 24px 0;
+    padding-left: 56px;
+    padding-right: 16px;
+
+
+    &::before {
+        content: url('/svg/search.svg');
+        position: absolute;
+        left: 16px;
+    }
+
+    &__input {
+
+        background-color: transparent;
+        border: none;
+        color: $pureWhite;
+        width: 100%;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        box-sizing: border-box;
+
+        &::placeholder {
+            opacity: .4979;
+
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

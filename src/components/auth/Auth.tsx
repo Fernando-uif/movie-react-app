@@ -1,4 +1,6 @@
 import { Dispatch, FormEvent, SetStateAction } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Title } from "../title/Title";
 import { Icon } from "../Icon";
 
@@ -10,9 +12,11 @@ interface AuthProps {
   isLogin: boolean;
 }
 export const Auth = ({ isLogin, setIsLogin }: AuthProps) => {
+  const navigate = useNavigate();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+    // Get the user or the info an redirect to the movies home
+    navigate("/home-movies");
   };
   return (
     <>

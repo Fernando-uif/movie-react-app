@@ -1,0 +1,82 @@
+@import '../variables/colors.scss';
+
+.trending {
+    color: $pureWhite;
+
+    &__title {
+        padding-left: 16px;
+        margin: unset;
+        margin-bottom: 25px;
+    }
+
+    &__wrapperScroll {
+        padding-left: 16px;
+    }
+
+    &__wrapperScrollImages {
+        display: flex;
+        overflow: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+
+
+    &__wrapperImage {
+        position: relative;
+        min-width: calc(100% - 16px);
+        scroll-snap-align: start;
+        padding-right: 16px;
+    }
+
+    &__image {
+        aspect-ratio: 16 / 9;
+        border-radius: 8px;
+        width: 100%;
+        z-index: 100;
+    }
+
+    &__detailsMovie {
+        display: flex;
+        gap: 19px;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        color: $pureWhite;
+        opacity: .75;
+
+        &--item {
+            position: relative;
+
+            &:not(:last-child)::after {
+                position: absolute;
+                content: '';
+                width: 3px;
+                height: 3px;
+                background-color: $pureWhite;
+                opacity: .5;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                top: calc(100% / 2 - 1.5px);
+                right: -9.5px;
+            }
+        }
+    }
+
+    &__infoMovie {
+        position: absolute;
+        z-index: 200;
+        bottom: 24px;
+        left: 24px;
+    }
+
+    &__movieTitle {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        color: $pureWhite;
+    }
+}

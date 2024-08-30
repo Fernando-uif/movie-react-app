@@ -1,0 +1,48 @@
+@import '../variables/colors.scss';
+
+.navbar {
+    padding: 18px 16px;
+    background-color: $semiDarkBlue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__wrapperIcons {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+    }
+
+    &__icon {
+
+        display: block;
+        cursor: pointer;
+
+        & svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        &__nav {
+
+            &:hover svg path {
+                fill: $pureWhite;
+            }
+
+            &--active {
+                & svg path {
+                    fill: $pureWhite;
+                }
+            }
+        }
+    }
+
+    &__image {
+        width: 24px;
+        height: 24px;
+        object-fit: cover;
+        outline: 2px solid #fff;
+        border-radius: 50%;
+
+    }
+}
