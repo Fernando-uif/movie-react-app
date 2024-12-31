@@ -28,7 +28,7 @@ export const Navbar = () => {
           className={`${navbarStyles["navbar__icon"]} ${navbarStyles["navbar__icon__nav"]}`}
         />
         <Icon
-          name="book_movie"
+          name="book_movie_page"
           className={`${navbarStyles["navbar__icon"]} ${navbarStyles["navbar__icon__nav"]}`}
         />
       </div>

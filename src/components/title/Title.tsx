@@ -1,5 +1,6 @@
-import type { TitleProps } from "../../interfaces/title/title.interface";
 import titleStyle from "../../sass/title/title.module.scss";
+
+import type { TitleProps } from "../../interfaces/title/title.interface";
 
 export const Title = ({ level, text, className }: TitleProps) => {
   return (

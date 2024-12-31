@@ -24,9 +24,11 @@
         }
 
         &__nav {
+            @media (hover: hover) {
+                &:hover svg path {
+                    fill: $pureWhite;
 
-            &:hover svg path {
-                fill: $pureWhite;
+                }
             }
 
             &--active {

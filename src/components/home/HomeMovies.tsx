@@ -1,3 +1,4 @@
+import { Recommended } from "../movies/Recommended";
 import { TrendingMovies } from "../movies/TrendingMovies";
 import { Search } from "../search/Search";
 import { Navbar } from "../ui/Navbar";
@@ -8,6 +9,7 @@ export const HomeMovies = () => {
       <Navbar />
       <Search />
       <TrendingMovies />
+      <Recommended />
     </>
   );
 };

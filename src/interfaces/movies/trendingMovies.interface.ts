@@ -5,7 +5,7 @@ export interface TrendingMovieResponse {
   total_results: number;
 }
 
-interface MovieResult {
+export interface MovieResult {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];

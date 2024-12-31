@@ -1,8 +1,12 @@
+import { Children } from "react";
+
 import { useFetch } from "../../hooks/useFetch";
 import { Title } from "../title/Title";
+
 import trendingStyles from "../../sass/movies/trendingMovies.module.scss";
-import { Icon } from "../Icon";
-import { TrendingMovieResponse } from "../../interfaces";
+
+import type { TrendingMovieResponse } from "../../interfaces";
+import { MovieCard } from "../movie/MovieCard";
 
 export const TrendingMovies = () => {
   const {
@@ -26,46 +30,11 @@ export const TrendingMovies = () => {
       />
       <div className={`${trendingStyles["trending__wrapperScroll"]}`}>
         <div className={`${trendingStyles["trending__wrapperScrollImages"]}`}>
-          {data.results.map((movie) => {
-            console.log(movie, "movie");
-            return (
-              <>
-                <div className={`${trendingStyles["trending__wrapperImage"]}`}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-                    alt=""
-                    className={`${trendingStyles["trending__image"]}`}
-                  />
-                  <div className={`${trendingStyles["trending__infoMovie"]}`}>
-                    <div
-                      className={`${trendingStyles["trending__detailsMovie"]}`}
-                    >
-                      <span
-                        className={`${trendingStyles["trending__detailsMovie--item"]}`}
-                      >
-                        {movie.release_date.split("-")[0]}
-                      </span>
-                      <span
-                        className={`${trendingStyles["trending__detailsMovie--item"]}`}
-                      >
-                        <Icon name="" /> Movie
-                      </span>
-                      <span
-                        className={`${trendingStyles["trending__detailsMovie--item"]}`}
-                      >
-                        PG
-                      </span>
-                    </div>
-                    <span
-                      className={`${trendingStyles["trending__movieTitle"]}`}
-                    >
-                      {movie.title}
-                    </span>
-                  </div>
-                </div>
-              </>
-            );
-          })}
+          {Children.toArray(
+            data.results.map((movie) => {
+              return <MovieCard movie={movie} isDescriptionInside={true} />;
+            })
+          )}
         </div>
       </div>
     </>
