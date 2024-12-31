@@ -8,9 +8,9 @@ export const Search = () => {
       ? "Search for movies or TV series"
       : location.pathname === "/movies"
       ? "Search for movies"
-      : location.pathname === "/tv-series"
+      : location.pathname === "/series"
       ? "Search for TV series"
-      : location.pathname === "/bookmarked-shows"
+      : location.pathname === "/bookmark"
       ? "Search for bookmarked shows"
       : "";
   return (

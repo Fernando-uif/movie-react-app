@@ -1,28 +1,26 @@
-import { Children } from "react";
-
 import { useFetch } from "../../hooks/useFetch";
 import { Title } from "../title/Title";
-import { MovieCard } from "../movie/MovieCard";
 
 import style from "../../sass/movies/gridMovieCard.module.scss";
 
 import type { TrendingMovieResponse } from "../../interfaces";
+import { MovieCard } from "../movie/MovieCard";
+import { Children } from "react";
 
-export const Recommended = () => {
+export const Series = () => {
   const {
     data,
     isLoading,
   }: { data: TrendingMovieResponse | undefined; isLoading: boolean } = useFetch(
-    `https://api.themoviedb.org/3/movie/top_rated?&page=1&api_key=${
+    `https://api.themoviedb.org/3/tv/popular?language=en-US&page=1&api_key=${
       import.meta.env.VITE_MOVIE_KEY
     }`
   );
-
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No data available</p>;
   return (
     <>
-      <Title level="h2" text="Recommended for you" />
+      <Title level="h2" text="Popular Series" />
       <div className={`${style["gridMovieCard"]}`}>
         {Children.toArray(
           data?.results.map((movie) => {

@@ -14,14 +14,13 @@ export const SlideMovie = () => {
       import.meta.env.VITE_MOVIE_KEY
     }`
   );
-  console.log({ data, isLoading });
+
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No data available</p>;
 
   return (
     <div>
       {data.results.map((movie) => {
-        console.log(movie, "movie");
         return (
           <>
             <div className={`${trendingStyles["trending__wrapperImage"]}`}>
@@ -37,11 +36,7 @@ export const SlideMovie = () => {
                   >
                     {movie.release_date.split("-")[0]}
                   </span>
-                  <span
-                    className={`${trendingStyles["trending__detailsMovie--item"]}`}
-                  >
-                    <Icon name="" /> Movie
-                  </span>
+
                   <span
                     className={`${trendingStyles["trending__detailsMovie--item"]}`}
                   >

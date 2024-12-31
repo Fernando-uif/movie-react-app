@@ -1,20 +1,35 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "../src/App.css";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomeMovies } from "./components/home/HomeMovies.tsx";
+
+import App from "./App.tsx";
+import { HomeMovies } from "./pages/HomeMovies.tsx";
+import { MoviePage } from "./pages/MoviePage.tsx";
+
+import "../src/App.css";
+import { SeriesPage } from "./pages/SeriesPage.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children: [
-    ],
+    children: [],
   },
   {
     path: "/home-movies",
     element: <HomeMovies />,
+  },
+  {
+    path: "/movies",
+    element: <MoviePage />,
+  },
+  {
+    path: "/series",
+    element: <SeriesPage />,
+  },
+  {
+    path: "/bookmark",
+    element: <MoviePage />,
   },
 ]);
 
