@@ -8,17 +8,24 @@ import { Title } from "../title/Title";
 
 export const Booked = () => {
   const bookedItems = useBookedStore((state) => state.bookedItems);
+  const foundItems = useBookedStore((state) => state.foundItems);
 
   return (
     <>
       <Title level="h2" text="Bookmarked Movies / Series" />
 
       <div className={`${style["gridMovieCard"]}`}>
-        {Children.toArray(
-          bookedItems.map((movie) => {
-            return <MovieCard isDescriptionInside={false} movie={movie} />;
-          })
-        )}
+        {foundItems.length
+          ? Children.toArray(
+              foundItems.map((movie) => {
+                return <MovieCard isDescriptionInside={false} movie={movie} />;
+              })
+            )
+          : Children.toArray(
+              bookedItems.map((movie) => {
+                return <MovieCard isDescriptionInside={false} movie={movie} />;
+              })
+            )}
       </div>
     </>
   );

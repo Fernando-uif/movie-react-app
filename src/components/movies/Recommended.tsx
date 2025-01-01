@@ -20,6 +20,7 @@ export const Recommended = () => {
 
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No data available</p>;
+  
   return (
     <>
       <Title level="h2" text="Recommended for you" />

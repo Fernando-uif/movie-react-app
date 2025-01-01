@@ -4,7 +4,9 @@ import { Booked } from "../components/movies/Booked";
 
 import style from "../sass/ui/navbar.module.scss";
 
+
 export const BookedPage = () => {
+ 
   return (
     <div className={`${style["navbar__desktop"]}`}>
       <div>

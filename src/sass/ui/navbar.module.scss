@@ -9,7 +9,7 @@
 
     @media screen and (min-width:834px) {
         flex-direction: column;
-        height: 100vh;
+        height: calc(100vh - 18px * 2);
     }
 
     &__wrapperIcons {
