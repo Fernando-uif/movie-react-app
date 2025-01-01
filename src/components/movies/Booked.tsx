@@ -1,4 +1,4 @@
-import { Children } from "react";
+import { Children, useEffect } from "react";
 
 import { useBookedStore } from "../../store/booked/booked-store";
 import { MovieCard } from "../movie/MovieCard";
@@ -9,7 +9,12 @@ import style from "../../sass/movies/gridMovieCard.module.scss";
 export const Booked = () => {
   const bookedItems = useBookedStore((state) => state.bookedItems);
   const foundItems = useBookedStore((state) => state.foundItems);
-  
+  const clearBookedItems = useBookedStore((state) => state.clearBooked);
+
+  useEffect(() => {
+    clearBookedItems();
+    return () => {};
+  }, [clearBookedItems]);
   return (
     <>
       <Title level="h2" text="Bookmarked Movies / Series" />

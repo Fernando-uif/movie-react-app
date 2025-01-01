@@ -31,6 +31,9 @@ export const useSearchStore = create<SearchProps>()(
       setFoundItems(items) {
         set({ foundItems: [...items] });
       },
+      clearFoundItems() {
+        set({ foundItems: [] });
+      },
     }),
 
     {

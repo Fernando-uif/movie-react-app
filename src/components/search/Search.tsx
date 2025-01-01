@@ -38,14 +38,16 @@ export const Search = () => {
 
   const handleSearchItem = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
+
     if (currentPath === "/bookmark") {
       const foundItems = setSearchItem(e.target.value);
 
       setFoundItems(foundItems);
-
+      // setFoundItems(foundItems);
     } else {
       const foundItems = searchItems(e.target.value);
       setFoundRestItems(foundItems);
+      // setFoundRestItems(foundItems);
     }
   };
 

@@ -1,4 +1,4 @@
-import { Children } from "react";
+import { Children, useEffect } from "react";
 
 import { useFetch } from "../../hooks/useFetch";
 import { Title } from "../title/Title";
@@ -22,6 +22,12 @@ export const UpcomingMovies = () => {
 
   const setSearchItems = useSearchStore((state) => state.setItems);
   const foundItems = useSearchStore((state) => state.foundItems);
+  const clearFoundItems = useSearchStore((state) => state.clearFoundItems);
+
+  useEffect(() => {
+    clearFoundItems();
+    return () => {};
+  }, [clearFoundItems]);
 
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No data available</p>;

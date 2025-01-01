@@ -27,7 +27,7 @@ export const useBookedStore = create<BookedProps>()(
       },
 
       clearBooked() {
-        set({ bookedItems: [] });
+        set({ foundItems: [] });
       },
 
       searchItem(name) {

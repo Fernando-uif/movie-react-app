@@ -1,4 +1,4 @@
-import { Children } from "react";
+import { Children, useEffect } from "react";
 
 import { useFetch } from "../../hooks/useFetch";
 import { Title } from "../title/Title";
@@ -22,34 +22,34 @@ export const Recommended = () => {
 
   const setSearchItems = useSearchStore((state) => state.setItems);
   const foundItems = useSearchStore((state) => state.foundItems);
+  const clearFoundItems = useSearchStore((state) => state.clearFoundItems);
 
+  useEffect(() => {
+    clearFoundItems();
+    return () => {};
+  }, [clearFoundItems]);
 
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No data available</p>;
 
   // Empty data
-  setSearchItems([]);
   setSearchItems(data.results);
 
   return (
     <>
       <Title level="h2" text="Recommended for you" />
       <div className={`${style["gridMovieCard"]}`}>
-        {
-          foundItems.length ? 
-          Children.toArray(
-            foundItems.map((movie) => {
-              return <MovieCard movie={movie} isDescriptionInside={false} />;
-            })
-          )
-          : 
-          Children.toArray(
-            data?.results.map((movie) => {
-              return <MovieCard movie={movie} isDescriptionInside={false} />;
-            })
-          )
-        }
-        
+        {foundItems.length
+          ? Children.toArray(
+              foundItems.map((movie) => {
+                return <MovieCard movie={movie} isDescriptionInside={false} />;
+              })
+            )
+          : Children.toArray(
+              data?.results.map((movie) => {
+                return <MovieCard movie={movie} isDescriptionInside={false} />;
+              })
+            )}
       </div>
     </>
   );
