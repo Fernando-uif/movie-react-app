@@ -1,11 +1,14 @@
+import { Children } from "react";
+
 import { useFetch } from "../../hooks/useFetch";
 import { Title } from "../title/Title";
+
+import { useSearchStore } from "../../store/searchItem/search-store";
+import { MovieCard } from "../movie/MovieCard";
 
 import style from "../../sass/movies/gridMovieCard.module.scss";
 
 import type { TrendingMovieResponse } from "../../interfaces";
-import { MovieCard } from "../movie/MovieCard";
-import { Children } from "react";
 
 export const Series = () => {
   const {
@@ -16,17 +19,29 @@ export const Series = () => {
       import.meta.env.VITE_MOVIE_KEY
     }`
   );
+  const setSearchItems = useSearchStore((state) => state.setItems);
+  const foundItems = useSearchStore((state) => state.foundItems);
+
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No data available</p>;
+
+  setSearchItems(data.results);
+
   return (
     <>
       <Title level="h2" text="Popular Series" />
       <div className={`${style["gridMovieCard"]}`}>
-        {Children.toArray(
-          data?.results.map((movie) => {
-            return <MovieCard movie={movie} isDescriptionInside={false} />;
-          })
-        )}
+        {foundItems.length
+          ? Children.toArray(
+              foundItems.map((movie) => {
+                return <MovieCard movie={movie} isDescriptionInside={false} />;
+              })
+            )
+          : Children.toArray(
+              data?.results.map((movie) => {
+                return <MovieCard movie={movie} isDescriptionInside={false} />;
+              })
+            )}
       </div>
     </>
   );

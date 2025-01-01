@@ -2,14 +2,14 @@ import { Children } from "react";
 
 import { useBookedStore } from "../../store/booked/booked-store";
 import { MovieCard } from "../movie/MovieCard";
+import { Title } from "../title/Title";
 
 import style from "../../sass/movies/gridMovieCard.module.scss";
-import { Title } from "../title/Title";
 
 export const Booked = () => {
   const bookedItems = useBookedStore((state) => state.bookedItems);
   const foundItems = useBookedStore((state) => state.foundItems);
-
+  
   return (
     <>
       <Title level="h2" text="Bookmarked Movies / Series" />

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import { useBookedStore } from "../../store/booked/booked-store";
+import { useSearchStore } from "../../store/searchItem/search-store";
 
 import searchStyles from "../../sass/ui/search.module.scss";
 
@@ -25,8 +26,12 @@ const pathMessages: PathMessages = {
 export const Search = () => {
   const location = useLocation();
   const [inputValue, setInputValue] = useState<string>("");
+
   const setSearchItem = useBookedStore((state) => state.searchItem);
   const setFoundItems = useBookedStore((state) => state.setFoundItems);
+
+  const searchItems = useSearchStore((state) => state.searchItem);
+  const setFoundRestItems = useSearchStore((state) => state.setFoundItems);
 
   const placeHolderMessage: string = pathMessages[location.pathname] || "";
   const currentPath: Locations = location.pathname as Locations;
@@ -37,11 +42,13 @@ export const Search = () => {
       const foundItems = setSearchItem(e.target.value);
 
       setFoundItems(foundItems);
+
     } else {
-      console.log();
+      const foundItems = searchItems(e.target.value);
+      setFoundRestItems(foundItems);
     }
   };
-  // TODO Vamos actualizando el store cuando vamos escribiendo, porque ya tenemos el arreglo de todos nuestros elementos
+
   return (
     <>
       <div className={`${searchStyles["search"]}`}>
