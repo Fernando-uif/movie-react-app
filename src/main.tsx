@@ -2,12 +2,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import App from "./App.tsx";
+import { Booked } from "./pages/Booked.tsx";
 import { HomeMovies } from "./pages/HomeMovies.tsx";
 import { MoviePage } from "./pages/MoviePage.tsx";
+import { SeriesPage } from "./pages/SeriesPage.tsx";
+
+import App from "./App.tsx";
 
 import "../src/App.css";
-import { SeriesPage } from "./pages/SeriesPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/bookmark",
-    element: <MoviePage />,
+    element: <Booked />,
   },
 ]);
 

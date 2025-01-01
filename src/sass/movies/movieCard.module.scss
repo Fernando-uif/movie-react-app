@@ -25,9 +25,13 @@
         top: 10px;
     }
 
-    &__bookMovie {
-        opacity: initial;
+
+    &__booked {
+        & svg {
+            fill: #fff;
+        }
     }
+
 
     &__detailsMovie {
         display: flex;
