@@ -7,10 +7,19 @@
     justify-content: space-between;
     align-items: center;
 
+    @media screen and (min-width:834px) {
+        flex-direction: column;
+        height: 100vh;
+    }
+
     &__wrapperIcons {
         display: flex;
         gap: 28px;
         align-items: center;
+
+        @media screen and (min-width:834px) {
+            flex-direction: column;
+        }
     }
 
     &__icon {
@@ -45,6 +54,17 @@
         object-fit: cover;
         outline: 2px solid #fff;
         border-radius: 50%;
+
+    }
+
+    &__desktop {
+        @media screen and (min-width:834px) {
+            display: flex;
+
+            &--content {
+                width: calc(100% - 56px);
+            }
+        }
 
     }
 }

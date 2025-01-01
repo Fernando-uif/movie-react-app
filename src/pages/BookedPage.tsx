@@ -1,10 +1,10 @@
-import { Search } from "../components/search/Search";
-import { Series } from "../components/series/Series";
 import { Navbar } from "../components/ui/Navbar";
+import { Search } from "../components/search/Search";
+import { Booked } from "../components/movies/Booked";
 
 import style from "../sass/ui/navbar.module.scss";
 
-export const SeriesPage = () => {
+export const BookedPage = () => {
   return (
     <div className={`${style["navbar__desktop"]}`}>
       <div>
@@ -12,7 +12,7 @@ export const SeriesPage = () => {
       </div>
       <div className={`${style["navbar__desktop--content"]}`}>
         <Search />
-        <Series />
+        <Booked />
       </div>
     </div>
   );
